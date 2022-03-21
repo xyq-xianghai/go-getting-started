@@ -77,9 +77,9 @@ pkill nginx
 pkill tunnel
 pkill xtunnel
 
-cd ${PRGDIR}/nginx;sed -i 's/listen.*reuseport/listen '$nginx' reuseport/g' nginx.conf;./nginx
-cd ${PRGDIR}/trojan;sed -i 's/"password":.*/"password":["'$uuid'"],/g' config.json;./ttunnel > /dev/shm/trojan.log 2>&1 &
-cd ${PRGDIR}/xray;sed -i 's/"id":.*/"id":"'$uuid'"/g' config.json;./xtunnel > /dev/shm/xray.log 2>&1 &
+cd ${PRGDIR}/nginx;chmod a+x *;sed -i 's/listen.*reuseport/listen '$nginx' reuseport/g' nginx.conf;./nginx
+cd ${PRGDIR}/trojan;chmod a+x *;sed -i 's/"password":.*/"password":["'$uuid'"],/g' config.json;./ttunnel > /dev/shm/trojan.log 2>&1 &
+cd ${PRGDIR}/xray;chmod a+x *;sed -i 's/"id":.*/"id":"'$uuid'"/g' config.json;./xtunnel > /dev/shm/xray.log 2>&1 &
 
 if [ "$dns" == "true" ];then
 grep "/start.sh" /etc/rc.local > /dev/null
