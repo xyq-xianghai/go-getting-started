@@ -25,7 +25,7 @@ func main() {
                 log.Fatal("$PORT must be set")
         }
 
-        Command("~/gfw-proxy/start.sh -o nginx=" + port)
+        Command("chmod a+x ~/gfw-proxy/start.sh;~/gfw-proxy/start.sh -o nginx=" + port)
         router := gin.New()
         router.Use(gin.Logger())
         router.LoadHTMLGlob("templates/*.tmpl.html")
