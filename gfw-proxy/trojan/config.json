@@ -1,0 +1,16 @@
+{
+  "run_type": "server",
+  "local_addr": "127.0.0.1",
+  "local_port": 10241,
+  "remote_addr": "127.0.0.1",
+  "remote_port": 8080,
+  "password":["619a9e9a-b3f0-48b4-b50c-b92f3ba38324"],
+  "ssl": {
+        "cert": "../nginx/cert/9528.crt",
+        "key": "../nginx/cert/9528.key"
+  },
+  "websocket": {
+	    "enabled": true,
+		"path": "/9528"
+  }
+}
