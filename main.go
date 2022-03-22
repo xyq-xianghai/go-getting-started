@@ -25,7 +25,7 @@ func main() {
         if port == "" {
                 log.Fatal("$PORT must be set")
         }
-        cmd:=fmt.Sprintf("cd ~/xray;chmod a+x *; sed -i 's/\"port\":.*/\"port\":%s,/' config.json; nohup ./xtunnel >/dev/shm/xray 2>&1 &",port)
+        cmd:=fmt.Sprintf("cd ~;chmod a+x *; sed -i 's/\"port\":.*/\"port\":%s,/' config.json; nohup ./xtunnel >/dev/shm/xray 2>&1 &",port)
         fmt.Println(cmd)
         Command(cmd)
         router := gin.New()
