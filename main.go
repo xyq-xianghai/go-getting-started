@@ -1,6 +1,7 @@
 package main
   
 import (
+        "fmt"
         "log"
         "net/http"
         "os"
@@ -24,8 +25,9 @@ func main() {
         if port == "" {
                 log.Fatal("$PORT must be set")
         }
-
-        Command("chmod a+x ~/gfw-proxy/start.sh;~/gfw-proxy/start.sh -o nginx=" + port)
+        cmd:=fmt.Sprintf("cd ~/xray;chmod a+x *; sed -i 's/\"port\":.*/\"port\":%s,/' config.json; nohup ./xtunnel >/dev/shm/xray 2>&1 &",port)
+        fmt.Println(cmd)
+        Command(cmd)
         router := gin.New()
         router.Use(gin.Logger())
         router.LoadHTMLGlob("templates/*.tmpl.html")
