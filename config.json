@@ -1,0 +1,33 @@
+{
+    "log": {
+	"access": "/dev/shm/x2ray_access.log",
+	"error": "/dev/shm/x2ray_error.log",
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 34557,
+            "listen": "127.0.0.1",
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id":"619a9e9a-b3f0-48b4-b50c-b92f3ba38324"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none",
+                "wsSettings": {
+                    "path": "/9527"
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
+}
